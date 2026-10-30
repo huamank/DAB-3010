@@ -1,0 +1,29 @@
+bundle:
+  name: webinar_retail
+
+include:
+  - resources/*.yml
+
+sync:
+  include:
+    - data/*.csv
+
+variables:
+  catalog:
+    description: Catalogo Unity Catalog de destino
+  schema_prefix:
+    description: Prefijo de los esquemas
+    default: retail
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog: demo_dev
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Production/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: demo_prod
