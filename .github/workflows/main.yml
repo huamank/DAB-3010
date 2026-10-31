@@ -49,7 +49,7 @@ jobs:
       - uses: databricks/setup-cli@main
       - name: Deploy (prod)
         env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_PROD }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_PROD }}
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST_PRD }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_PRD }}
         run: |
           databricks bundle deploy --target prod
